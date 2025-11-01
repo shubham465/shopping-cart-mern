@@ -29,6 +29,7 @@ const Register = () => {
 
     try {
       setLoading(true)
+      console.log(import.meta.env.VITE_SERVER_URL)
       const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/auth/register`, {
         method: "POST",
         headers: {
@@ -39,7 +40,7 @@ const Register = () => {
       })
 
       const data = await res.json()
-
+        
       if (data.success) {
         setFormData(initialData)
         toast.success(data.message)
